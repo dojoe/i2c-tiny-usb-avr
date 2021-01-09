@@ -27,6 +27,24 @@ For details Thomas has a great write-up at his I2C-MP-USB_ page so here are a fe
 - Python: Thomas wrote a nice library - see https://fischl.de/i2c-mp-usb/#pyI2C_MP_USB
 - Java: Thomas wrote a nice Java library too - see https://fischl.de/i2c-mp-usb/#jlI2C_MP_USB
 
+Hardware support
+================
+
+There is no dedicated hardware associated with this firmware - the idea is that you can grab whatever board
+you have in your parts bin as long as it's got an XU4 on it, plonk this firmware on it and off you go.
+
+The board I used the firmware on is my own 32U4 board called TinyMega_ (German wiki, needs cleanup).
+An Arduino Leonardo will also work since it's built around the same chip.
+
+The HW I2C on these parts is attached to pins like so:
+
+=======  ======  ===========
+I2C pin  uC pin  Arduino pin
+=======  ======  ===========
+SCL      D0      3
+SDA      D1      2
+=======  ======  ===========
+
 Flashing
 ========
 
@@ -72,3 +90,4 @@ without which it would not have been possible to build from scratch to working i
 .. _Zadig: http://zadig.akeo.ie/
 .. _`Zak Kemble's builds`: https://blog.zakkemble.net/avr-gcc-builds/
 .. _LUFA: http://www.fourwalledcubicle.com/LUFA.php
+.. _TinyMega: https://wiki.shackspace.de/project/tinymega
