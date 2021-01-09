@@ -7,7 +7,7 @@ so I wrote this firmware. It uses their protocol and VID/PID pair so existing dr
 
 Features:
 
-- Supports ATmega16U4 and ATmega32U4
+- Supports ATmega16U4 and ATmega32U4 (used on the Arduino Leonardo)
 
   - Won't work on the ATmegaXU2 line since they don't have hardware I2C :(
   - May work on other USB-enabled AVRs if supported by LUFA, just give it a try.
@@ -30,8 +30,14 @@ For details Thomas has a great write-up at his I2C-MP-USB_ page so here are a fe
 Flashing
 ========
 
-A pre-built hex file for a 16 MHz crystal is provided.
-Just flash it onto your XU4 via the DFU bootloader.
+A pre-built hex file for a 16 MHz crystal is provided. Just flash it onto your XU4 via the DFU bootloader::
+
+  avrdude -u -p atmega32u4 -P usb -c flip1 -Uflash:w:i2c-tiny-usb.hex
+
+The same hex file *should* also be flashable as-is onto an Arduino Leonardo via the Arduino bootloader,
+but I have not tried this, so YMMV::
+
+  avrdude -u -p atmega32u4 -P <your port here> -c avr109 -Uflash:w:i2c-tiny-usb.hex
 
 Building from source
 ====================
